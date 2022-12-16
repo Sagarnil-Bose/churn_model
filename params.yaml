@@ -21,13 +21,13 @@ mlflow_config:
   remote_server_uri: http://localhost:1234
  
 random_forest: 
-  max_depth: 5
+  max_depth: 7
   n_estimators: 30
 
 model_dir: models/model.joblib
 model_service_dir: prediction_service/model_service_dir/model.joblib
-model_webapp_dir: app/model_app_dir/model.joblib
+#model_webapp_dir: app/model_app_dir/model.joblib
 
-model_monitor:
-  target_col_name: target
-  monitor_dashboard_html: reports/data_and_target_drift_dashboard.html
+#model_monitor:
+#  target_col_name: target
+#  monitor_dashboard_html: reports/data_and_target_drift_dashboard.html

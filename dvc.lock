@@ -39,9 +39,23 @@ stages:
       md5: 8358e3ab11f8301c58d3b0e5aa99a6fd
       size: 92916
     - path: src/models/train_model.py
-      md5: d41d8cd98f00b204e9800998ecf8427e
-      size: 0
+      md5: 1b41bc021612b739e206a4223ab6c61f
+      size: 3982
     params:
       params.yaml:
-        random_forest.max_depth: 5
+        random_forest.max_depth: 7
         random_forest.n_estimators: 30
+  log_production_model:
+    cmd: python src/models/production_model_selection.py --config=params.yaml
+    deps:
+    - path: src/models/production_model_selection.py
+      md5: 34750f3c256ad6b7b03a22c149b3c775
+      size: 1880
+    params:
+      params.yaml:
+        random_forest.max_depth: 7
+        random_forest.n_estimators: 30
+    outs:
+    - path: models/model.joblib
+      md5: 723db983f2e6c7b5c18ef2bf10d73c79
+      size: 122162
